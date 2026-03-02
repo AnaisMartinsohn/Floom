@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bassin de la Muette</title>
+
+<style>
+:root {
+    --overlay-light: rgba(255,255,255,0.2);
+    --pink-text: #1c3d4a;
+    --radius: 25px;
+}
+
+body {
+    background: linear-gradient(to bottom, #E6D0AF, #9fc8b6, #65A8AB, #9fc8b6, #E6D0AF);
+    background-size: 100% 250vh;
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    padding: 30px 0;
+}
+
+/* ================= MAIN GRID ================= */
+
+.container {
+    display: grid;
+    grid-template-columns: 350px 1fr 420px;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ================= BANNER ================= */
+
+.banner {
+    grid-column: 1;
+    width: 100%;
+    max-height: 160px;
+    object-fit: contain;
+}
+
+/* ================= DESCRIPTION ================= */
+
+.card-tall {
+    grid-column: 1;
+    background: var(--overlay-light);
+    border-radius: var(--radius);
+    padding: 25px;
+}
+
+.hero-description {
+    color: #1c3d4a;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ================= HERO ================= */
+
+.hero-shape {
+    grid-column: 2 / span 2;
+    border-radius: var(--radius);
+    background-image: url('images/Bassin_Muette.jpg');
+    background-position: center;
+    background-size: cover;
+    padding: 40px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.hero-shape h1 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+/* ================= LILYPADS ================= */
+
+.lilypad-row {
+    grid-column: 3;
+    background: var(--overlay-light);
+    border-radius: var(--radius);
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    justify-items: center;
+}
+
+.rectangle {
+    width: 130px;
+    height: 130px;
+    background: url('images/Text_box_2_red.png') no-repeat center center;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+    color: #1c3d4a;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.rectangle:hover {
+    transform: scale(1.1);
+}
+
+/* ================= INFO CARDS ================= */
+
+.info-card {
+    display: none;
+    grid-column: 3;
+    padding: 25px;
+    background: var(--overlay-light);
+    border-radius: var(--radius);
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* ================= FROG ================= */
+
+#frog {
+    position: fixed;
+    bottom: -50px;
+    left: 400px;
+    width: 200px;
+    z-index: 100;
+    pointer-events: none;
+}
+
+/* ================= SPEECH ================= */
+
+.speech-container {
+    position: fixed;
+    bottom: 240px;
+    left: 400px;
+    z-index: 101;
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.speech-bubble {
+    max-width: 300px;
+    background: white;
+    border: 3px solid #1c3d4a;
+    border-radius: 18px;
+    padding: 12px 14px;
+    font-size: 18px;
+    color: #1c3d4a;
+    position: relative;
+}
+
+.speech-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 30px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 12px solid white;
+}
+
+.speech-next {
+    background: #1c3d4a;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+/* ================= DECORATIVE ================= */
+
+.corner {
+    position: fixed;
+    width: 270px;
+    pointer-events: none;
+}
+
+.top-right { top: 0; right: 0; }
+.bottom-left { bottom: 0; left: 0; }
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 900px) {
+
+    body {
+        padding: 15px 10px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .banner,
+    .card-tall,
+    .hero-shape,
+    .lilypad-row,
+    .info-card {
+        grid-column: 1 !important;
+        max-width: 100%;
+    }
+
+    .hero-shape {
+        padding: 25px;
+    }
+
+    .hero-shape h1 {
+        font-size: 1.8rem;
+    }
+
+    .rectangle {
+        width: 110px;
+        height: 110px;
+        font-size: 16px;
+    }
+
+    #frog {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150px;
+        bottom: -30px;
+    }
+
+    .speech-container {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 190px;
+    }
+
+    .speech-bubble {
+        max-width: 250px;
+        font-size: 16px;
+    }
+
+    .corner {
+        width: 160px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<img src="images/nenuphar.png" class="corner top-right">
+<img src="images/nenuphar_4.png" class="corner bottom-left">
+
+<div class="container">
+
+<img src="images/banner2.png" class="banner">
+
+<div class="card-tall">
+<p class="hero-description">
+Since 20--, the Bassin de la Muette has been suffering from toxic algae proliferation.<br><br>
+Aquatic life struggles due to oxygen depletion and reduced light penetration.<br><br>
+Floom monitors the lake in real time to restore ecological balance.
+</p>
+</div>
+
+<div class="hero-shape">
+<h1>Welcome to the<br>Bassin de la Muette</h1>
+</div>
+
+<div class="lilypad-row">
+<div class="rectangle" data-type="temperature">Temperature</div>
+<div class="rectangle" data-type="ph">pH</div>
+<div class="rectangle" data-type="turbidity">Turbidity</div>
+<div class="rectangle" data-type="conductivity">Conductivity</div>
+</div>
+
+<div class="info-card" id="temperature-card">
+<h2>Lake Temperature</h2>
+<p>Current temperature: <strong id="temperature">--</strong></p>
+</div>
+
+<div class="info-card" id="ph-card">
+<h2>Lake pH</h2>
+<p>Current pH: <strong>5</strong></p>
+</div>
+
+<div class="info-card" id="turbidity-card">
+<h2>Lake Turbidity</h2>
+<p>Current turbidity: <strong id="turbidity">--</strong></p>
+</div>
+
+<div class="info-card" id="conductivity-card">
+<h2>Lake Conductivity</h2>
+<p>Current conductivity: <strong id="conductivity">--</strong></p>
+</div>
+
+</div>
+
+<img id="frog" src="images/sargouset_2/images/eo_mc.png">
+
+<div class="speech-container" id="speech-container">
+<div class="speech-bubble">
+<span id="speech-text">
+Hi! I'm Sargouset, your guide around the lake's health.
+</span>
+</div>
+<button class="speech-next" id="speech-next">▶</button>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+const rectangles=document.querySelectorAll(".rectangle");
+const speechText=document.getElementById("speech-text");
+
+const parameterInfo={
+temperature:"The temperature shows how warm the lake is.",
+turbidity:"Turbidity shows how clear or cloudy the water is.",
+ph:"pH defines the lake's acidity.",
+conductivity:"Conductivity measures dissolved minerals."
+};
+
+rectangles.forEach(rect=>{
+rect.addEventListener("click",()=>{
+const type=rect.dataset.type;
+
+document.querySelectorAll(".info-card")
+.forEach(card=>card.style.display="none");
+
+const card=document.getElementById(type+"-card");
+card.style.display="block";
+
+card.scrollIntoView({behavior:"smooth", block:"center"});
+
+speechText.textContent=parameterInfo[type];
+document.getElementById("speech-container").style.display="flex";
+});
+});
+
+});
+</script>
+
+</body>
+</html>
+
