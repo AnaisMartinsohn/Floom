@@ -38,13 +38,21 @@ body {
 }
 
 .hero-shape {
-    height: 120px;   /* SAME HEIGHT AS BANNER */
+    grid-column: 2 / span 2;
+    grid-row: 1 / span 2;
     border-radius: var(--radius);
-    background: url('images/Bassin_Muette.jpg') center/cover no-repeat;
+    background-image: url('Bassin_Muette.jpg');
+    border-radius: 25px;
+    max-width: 750px;
+    max-height: 100px;
+    /* width: 100%; */
+    /* background-size: cover; */
+    background-position: right;
+    padding: 30px;
+    position: relative;
     display: flex;
-    align-items: right;
-    padding-left: 20px;
-    width: 300px
+    align-items: flex-start;
+    z-index: 1;
 }
 
 .hero-shape h1 {
