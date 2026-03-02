@@ -13,173 +13,157 @@
 
 body {
     background: linear-gradient(to bottom, #E6D0AF, #9fc8b6, #65A8AB, #9fc8b6, #E6D0AF);
-    background-size: 100% 250vh;
     margin: 0;
     font-family: Helvetica, Arial, sans-serif;
-    padding: 40px 0;
 }
 
-/* ================= MAIN GRID ================= */
+/* ================= TOP SECTION ================= */
 
-.container {
+.top-section {
     display: grid;
-    grid-template-columns: 380px 1fr;
-    grid-template-rows: auto auto;
-    gap: 30px;
+    grid-template-columns: 350px 1fr;
+    gap: 40px;
     max-width: 1300px;
-    margin: 0 auto;
+    margin: 40px auto;
+    padding: 0 20px;
 }
-
-/* LEFT COLUMN */
 
 .banner {
-    grid-column: 1;
-    grid-row: 1;
-    width: 100px;
-    max-height: 90px;
+    width: 100%;
+    max-height: 120px;
     object-fit: contain;
 }
 
-.card-tall {
-    grid-column: 1;
-    grid-row: 2;
-    background: var(--overlay-light);
-    border-radius: var(--radius);
-    padding: 25px;
-    width: 500px;
-    max-height: 100px;
-    right: 200px;
-}
-
-/* RIGHT COLUMN */
-
 .hero-shape {
-    grid-column: 2;
-    grid-row: 1 / span 2;
     border-radius: var(--radius);
     background: url('images/Bassin_Muette.jpg') center/cover no-repeat;
-    padding: 60px;
+    padding: 80px;
+    min-height: 220px;
     display: flex;
-    align-items: flex-start;
-    width: 900px;
-    max-height: 150px;
+    align-items: center;
 }
 
 .hero-shape h1 {
     color: white;
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin: 0;
-    max-width: 500px;
 }
 
-/* ================= LILYPADS ================= */
+/* ================= CENTER INFO ================= */
+
+.info-center {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+    background: var(--overlay-light);
+    border-radius: var(--radius);
+    text-align: center;
+}
+
+/* ================= BOTTOM SECTION ================= */
+
+.bottom-section {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+/* LILYPADS LEFT */
 
 .lilypad-row {
-    position: absolute;
-    right: 300px;
-    bottom: 20px;
     background: var(--overlay-light);
     border-radius: var(--radius);
     padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 15px;
 }
 
 .rectangle {
-    width: 90px;
-    height: 90px;
+    width: 85px;
+    height: 85px;
     background: url('images/Text_box_2_red.png') center/contain no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 13px;
+    text-align: center;
     cursor: pointer;
     transition: 0.2s;
-    font-size: 14px;
-    text-align: center;
 }
 
 .rectangle:hover {
     transform: scale(1.08);
 }
 
-/* ================= INFO CARDS ================= */
+/* INFO CARDS */
 
 .info-card {
     display: none;
-    position: absolute;
-    right: 120px;
-    bottom: 20px;
-    width: 320px;
+    margin-top: 20px;
     background: var(--overlay-light);
-    border-radius: var(--radius);
     padding: 20px;
+    border-radius: var(--radius);
+    max-width: 400px;
 }
 
-/* ================= FROG ================= */
+/* FROG RIGHT */
+
+.frog-container {
+    position: relative;
+}
 
 #frog {
-    position: fixed;
-    bottom: 20px;
-    left: 250px;   /* moved more LEFT */
-    width: 200px;
-    z-index: 100;
-    pointer-events: none;
+    width: 180px;
 }
 
 .speech-container {
-    position: fixed;
-    bottom: 240px;
-    left: 140px;
+    position: absolute;
+    bottom: 160px;
+    right: 30px;
     display: flex;
     gap: 8px;
-    z-index: 101;
 }
 
 .speech-bubble {
     background: white;
     border: 3px solid #1c3d4a;
     border-radius: 18px;
-    padding: 12px;
-    max-width: 260px;
+    padding: 10px;
+    max-width: 220px;
+    font-size: 14px;
 }
 
 /* ================= MOBILE ================= */
 
 @media (max-width:900px){
 
-    .container {
+    .top-section {
         grid-template-columns: 1fr;
     }
 
     .hero-shape {
-        grid-row: auto;
-        padding: 40px;
+        padding: 50px;
+        min-height: 180px;
     }
 
-    .lilypad-row {
-        position: static;
-        margin-top: 20px;
-        justify-self: center;
+    .info-center {
+        margin: 20px;
+        padding: 25px;
     }
 
-    .info-card {
-        position: static;
-        margin-top: 20px;
-        width: 100%;
-    }
-
-    #frog {
-        left: 50%;
-        transform: translateX(-50%);
-        width: 150px;
-        bottom: -30px;
+    .bottom-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
     }
 
     .speech-container {
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 190px;
+        right: 50%;
+        transform: translateX(50%);
     }
 }
 </style>
@@ -187,170 +171,48 @@ body {
 
 <body>
 
-<div class="container">
+<!-- TOP -->
+<div class="top-section">
 
-<img src="images/banner_2.png" class="banner">
+    <img src="images/banner_2.png" class="banner">
 
-<div class="hero-shape">
-<h1>Welcome to the<br>Bassin de la Muette</h1>
-</div>
-
-<div class="card-tall">
-<p>
-Since 20--, the Bassin de la Muette has been suffering from toxic algae proliferation.<br>
-Aquatic life struggles due to oxygen depletion and reduced light penetration.<br>
-Floom monitors the lake in real time to restore ecological balance.
-</p>
-</div>
+    <div class="hero-shape">
+        <h1>Welcome to the<br>Bassin de la Muette</h1>
+    </div>
 
 </div>
 
-<div class="lilypad-row">
-<div class="rectangle" data-type="temperature">Temperature</div>
-<div class="rectangle" data-type="ph">pH</div>
-<div class="rectangle" data-type="turbidity">Turbidity</div>
-<div class="rectangle" data-type="conductivity">Conductivity</div>
+<!-- CENTER INFO -->
+<div class="info-center">
+    <p>
+    Since 20--, the Bassin de la Muette has been suffering from toxic algae proliferation.
+    Aquatic life struggles due to oxygen depletion and reduced light penetration.
+    Floom monitors the lake in real time to restore ecological balance.
+    </p>
 </div>
 
-<div class="info-card" id="temperature-card">
-<h2>Lake Temperature</h2>
-<p><strong id="temperature">--</strong></p>
+<!-- BOTTOM -->
+<div class="bottom-section">
+
+    <div class="lilypad-row">
+        <div class="rectangle" data-type="temperature">Temperature</div>
+        <div class="rectangle" data-type="ph">pH</div>
+        <div class="rectangle" data-type="turbidity">Turbidity</div>
+        <div class="rectangle" data-type="conductivity">Conductivity</div>
+    </div>
+
+    <div class="frog-container">
+        <img id="frog" src="images/sargouset_2/eo_mc.png">
+        <div class="speech-container" id="speech-container">
+            <div class="speech-bubble">
+                <span id="speech-text">
+                Hi! I'm Sargouset, your guide around the lake's health.
+                </span>
+            </div>
+            <button id="speech-next">▶</button>
+        </div>
+    </div>
+
 </div>
 
-<div class="info-card" id="turbidity-card">
-<h2>Lake Turbidity</h2>
-<p><strong id="turbidity">--</strong></p>
-</div>
-
-<div class="info-card" id="conductivity-card">
-<h2>Lake Conductivity</h2>
-<p><strong id="conductivity">--</strong></p>
-</div>
-
-<div class="info-card" id="ph-card">
-<h2>Lake pH</h2>
-<p>5</p>
-</div>
-
-<img id="frog" src="images/sargouset_2/eo_mc.png">
-
-<div class="speech-container" id="speech-container">
-<div class="speech-bubble">
-<span id="speech-text">Hi! I'm Sargouset, your guide around the lake's health.</span>
-</div>
-<button id="speech-next">▶</button>
-</div>
-
-<!-- YOUR ENTIRE JAVASCRIPT REMAINS EXACTLY THE SAME -->
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-
-/* ================= FROG ANIMATION ================= */
-
-const frog=document.getElementById("frog");
-let currentEyes="eo", currentMouth="mc";
-const basePath="images/sargouset_2/";
-
-function updateFrame(){
-    frog.src=basePath+currentEyes+"_"+currentMouth+".png";
-}
-
-function blink(){
-    const seq=["esc","ec","esc"];
-    let i=0;
-    const interval=setInterval(()=>{
-        currentEyes=seq[i];
-        updateFrame();
-        i++;
-        if(i>=seq.length){
-            clearInterval(interval);
-            currentEyes="eo";
-            updateFrame();
-        }
-    },100);
-}
-
-setInterval(()=>{ blink(); },4000+Math.random()*3000);
-
-let talkingInterval;
-function startTalking(){
-    const mouths=["mc","mso","mo","mso"];
-    let i=0, cycles=0;
-    talkingInterval=setInterval(()=>{
-        currentMouth=mouths[i];
-        updateFrame();
-        i=(i+1)%mouths.length;
-        if(i===0) cycles++;
-        if(cycles>=10) stopTalking();
-    },120);
-}
-
-function stopTalking(){
-    clearInterval(talkingInterval);
-    currentMouth="mc";
-    updateFrame();
-}
-
-startTalking();
-setInterval(()=>{ startTalking(); },7000);
-
-/* ================= LILYPAD CLICK ================= */
-
-const rectangles=document.querySelectorAll(".rectangle");
-const speechText=document.getElementById("speech-text");
-
-const parameterInfo={
-temperature:"The temperature shows how warm the lake is.",
-turbidity:"Turbidity shows water clarity.",
-ph:"pH defines acidity.",
-conductivity:"Conductivity measures minerals."
-};
-
-rectangles.forEach(rect=>{
-rect.addEventListener("click",()=>{
-const type=rect.dataset.type;
-
-document.querySelectorAll(".info-card")
-.forEach(card=>card.style.display="none");
-
-const card=document.getElementById(type+"-card");
-card.style.display="block";
-
-card.scrollIntoView({behavior:"smooth", block:"center"});
-
-speechText.textContent=parameterInfo[type];
-document.getElementById("speech-container").style.display="flex";
-
-startTalking();
-});
-});
-
-/* ================= THINGSPEAK ================= */
-
-const channelID="3267133";
-const readAPIKey="51RMF6RF0SNM01AP";
-
-async function fetchData(){
-try{
-const response=await fetch(`https://api.thingspeak.com/channels/${channelID}/feeds.json?api_key=${readAPIKey}&results=1`);
-const data=await response.json();
-const last=data.feeds[0];
-if(last){
-document.getElementById("turbidity").textContent=last.field1;
-document.getElementById("conductivity").textContent=last.field2;
-document.getElementById("temperature").textContent=last.field3;
-}
-}catch(err){
-console.error(err);
-}
-}
-
-fetchData();
-setInterval(fetchData,15000);
-
-});
-</script>
-
-</body>
-</html>
+<!-- KEEP YOUR ENTIRE JAVASCRIPT EXACTLY AS IT WAS BELOW -->
