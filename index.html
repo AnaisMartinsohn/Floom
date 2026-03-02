@@ -8,7 +8,7 @@
 <style>
 :root {
     --overlay-light: rgba(255,255,255,0.2);
-    --radius: 25px;
+    --radius: 20px;
 }
 
 body {
@@ -17,88 +17,116 @@ body {
     font-family: Helvetica, Arial, sans-serif;
 }
 
-/* ================= TOP SECTION ================= */
+/* ================= TOP ================= */
 
 .top-section {
     display: grid;
-    grid-template-columns: 350px 1fr;
-    gap: 40px;
-    max-width: 1300px;
+    grid-template-columns: 300px 1fr;
+    align-items: center;
+    gap: 30px;
+    max-width: 1100px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
 .banner {
     width: 100%;
-    max-height: 120px;
+    height: 120px;
     object-fit: contain;
 }
 
 .hero-shape {
+    height: 120px;   /* SAME HEIGHT AS BANNER */
     border-radius: var(--radius);
     background: url('images/Bassin_Muette.jpg') center/cover no-repeat;
-    padding: 80px;
-    max-height: 100px;
     display: flex;
-    align-items: right;
+    align-items: center;
+    padding-left: 30px;
 }
 
 .hero-shape h1 {
     color: white;
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin: 0;
 }
 
-/* ================= CENTER INFO ================= */
+/* ================= CENTER TEXT ================= */
 
 .info-center {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 30px;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 25px 35px;
     background: var(--overlay-light);
     border-radius: var(--radius);
     text-align: center;
 }
 
-/* ================= BOTTOM SECTION ================= */
+/* ================= BOTTOM ================= */
 
 .bottom-section {
-    max-width: 1300px;
-    margin: 40px auto;
+    max-width: 1100px;
+    margin: 60px auto;
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
 }
 
-/* LILYPADS LEFT */
+/* FROG LEFT */
+
+.frog-container {
+    position: relative;
+}
+
+#frog {
+    width: 170px;
+}
+
+/* LILYPADS RIGHT */
 
 .lilypad-row {
     background: var(--overlay-light);
     border-radius: var(--radius);
-    padding: 20px;
+    padding: 18px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
-    right: 100px
 }
 
 .rectangle {
-    width: 85px;
-    height: 85px;
+    width: 80px;
+    height: 80px;
     background: url('images/Text_box_2_red.png') center/contain no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 13px;
+    font-size: 12px;
     text-align: center;
     cursor: pointer;
     transition: 0.2s;
-    right: 100px
 }
 
 .rectangle:hover {
     transform: scale(1.08);
+}
+
+/* SPEECH */
+
+.speech-container {
+    position: absolute;
+    bottom: 150px;
+    left: 40px;
+    display: flex;
+    gap: 8px;
+}
+
+.speech-bubble {
+    background: white;
+    border: 3px solid #1c3d4a;
+    border-radius: 16px;
+    padding: 8px 12px;
+    max-width: 200px;
+    font-size: 13px;
 }
 
 /* INFO CARDS */
@@ -109,52 +137,19 @@ body {
     background: var(--overlay-light);
     padding: 20px;
     border-radius: var(--radius);
-    max-width: 400px;
+    max-width: 350px;
 }
 
-/* FROG RIGHT */
+/* MOBILE */
 
-.frog-container {
-    position: relative;
-}
-
-#frog {
-    width: 180px;
-}
-
-.speech-container {
-    position: absolute;
-    bottom: 160px;
-    right: 30px;
-    display: flex;
-    gap: 8px;
-}
-
-.speech-bubble {
-    background: white;
-    border: 3px solid #1c3d4a;
-    border-radius: 18px;
-    padding: 10px;
-    max-width: 220px;
-    font-size: 14px;
-}
-
-/* ================= MOBILE ================= */
-
-@media (max-width:900px){
+@media (max-width: 900px){
 
     .top-section {
         grid-template-columns: 1fr;
     }
 
     .hero-shape {
-        padding: 50px;
-        min-height: 180px;
-    }
-
-    .info-center {
-        margin: 20px;
-        padding: 25px;
+        height: 100px;
     }
 
     .bottom-section {
@@ -164,8 +159,8 @@ body {
     }
 
     .speech-container {
-        right: 50%;
-        transform: translateX(50%);
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 </style>
@@ -175,34 +170,24 @@ body {
 
 <!-- TOP -->
 <div class="top-section">
-
     <img src="images/banner_2.png" class="banner">
 
     <div class="hero-shape">
         <h1>Welcome to the<br>Bassin de la Muette</h1>
     </div>
-
 </div>
 
-<!-- CENTER INFO -->
+<!-- CENTER TEXT -->
 <div class="info-center">
-    <p>
     Since 20--, the Bassin de la Muette has been suffering from toxic algae proliferation.
     Aquatic life struggles due to oxygen depletion and reduced light penetration.
     Floom monitors the lake in real time to restore ecological balance.
-    </p>
 </div>
 
 <!-- BOTTOM -->
 <div class="bottom-section">
 
-    <div class="lilypad-row">
-        <div class="rectangle" data-type="temperature">Temperature</div>
-        <div class="rectangle" data-type="ph">pH</div>
-        <div class="rectangle" data-type="turbidity">Turbidity</div>
-        <div class="rectangle" data-type="conductivity">Conductivity</div>
-    </div>
-
+    <!-- FROG LEFT -->
     <div class="frog-container">
         <img id="frog" src="images/sargouset_2/eo_mc.png">
         <div class="speech-container" id="speech-container">
@@ -213,6 +198,14 @@ body {
             </div>
             <button id="speech-next">▶</button>
         </div>
+    </div>
+
+    <!-- LILYPADS RIGHT -->
+    <div class="lilypad-row">
+        <div class="rectangle" data-type="temperature">Temperature</div>
+        <div class="rectangle" data-type="ph">pH</div>
+        <div class="rectangle" data-type="turbidity">Turbidity</div>
+        <div class="rectangle" data-type="conductivity">Conductivity</div>
     </div>
 
 </div>
@@ -285,8 +278,7 @@ body {
         const readAPIKey="51RMF6RF0SNM01AP"; 
         async function fetchData(){ 
             try{ 
-                const response=await fetch(https://api.thingspeak.com/channels/${channelID}/feeds.json?api_key=${readAPIKey}&results=1); 
-                                           const data=await response.json(); 
+                const response=await fetch(`https://api.thingspeak.com/channels/${channelID}/feeds.json?api_key=${readAPIKey}&results=1`);
                 const last=data.feeds[0]; 
                 if(last){ document.getElementById("turbidity").textContent=last.field1; 
                          document.getElementById("conductivity").textContent=last.field2; 
