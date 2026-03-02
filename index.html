@@ -71,7 +71,12 @@ h1,h2,p { color: #1c3d4a; }
 /* FROG */
 
 .frog-container {
-    position: relative;
+    position: fixed;
+    bottom: -50px;
+    left: 400px;
+    width: 200px;
+    z-index: 100;
+    pointer-events: none;
 }
 
 #frog {
@@ -81,21 +86,45 @@ h1,h2,p { color: #1c3d4a; }
 /* Speech bubble ABOVE frog */
 
 .speech-container {
-    position: absolute;
-    bottom: 140px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: fixed;
+    bottom: 240px;
+    left: 400px;
+    z-index: 101;
     display: flex;
+    align-items: flex-end;
     gap: 8px;
 }
 
 .speech-bubble {
+    max-width: 300px;
     background: white;
     border: 3px solid #1c3d4a;
-    border-radius: 16px;
-    padding: 10px 14px;
-    max-width: 240px;
-    font-size: 13px;
+    border-radius: 18px;
+    padding: 12px 14px;
+    font-size: 18px;
+    color: #1c3d4a;
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.15);
+    position: relative;
+}
+
+.speech-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 30px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 12px solid white;
+}
+
+.speech-next {
+    background: #1c3d4a;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
 }
 
 /* LILYPADS */
