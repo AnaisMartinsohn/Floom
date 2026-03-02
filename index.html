@@ -7,7 +7,7 @@
 
 <style>
 :root {
-    --overlay-light: rgba(255,255,255,0.2);
+    --overlay-light: rgba(255,255,255,0.25);
     --radius: 20px;
 }
 
@@ -15,117 +15,108 @@ body {
     background: linear-gradient(to bottom, #E6D0AF, #9fc8b6, #65A8AB, #9fc8b6, #E6D0AF);
     margin: 0;
     font-family: Helvetica, Arial, sans-serif;
-}
-
-/* ================= TOP ================= */
-
-.top-section {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    align-items: center;
-    gap: 30px;
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-.banner {
-    grid-column: 1;
-    grid-row: 1;
-    width: 100%;
-    max-height: 160px;
-    object-fit: contain;
-}
-
-.hero-shape {
-    grid-column: 2 / span 2;
-    grid-row: 1 / span 2;
-    border-radius: var(--radius);
-    background-image: url('images/Bassin_Muette.jpg');
-    border-radius: 25px;
-    max-width: 850px;
-    max-height: 60px;
-    /* width: 100%; */
-    /* background-size: cover; */
-    /* background-position: right; */
-    background-position: center;
-    /* padding: 30px; */
-    padding: 40px;
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    z-index: 1;
-}
-
-.hero-shape h1 {
-    color: white;
-    font-size: 1.5rem;
-    margin: 0;
+    text-align: center;
 }
 
 h1,h2,p { color: #1c3d4a; }
 
-/* ================= CENTER TEXT ================= */
+/* ================= TOP ================= */
+
+.banner {
+    margin-top: 40px;
+    width: 320px;
+    max-width: 80%;
+}
+
+.hero-image {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 700px;
+    height: 180px;              /* MUCH smaller height */
+    border-radius: var(--radius);
+    background: url('images/Bassin_Muette.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image h1 {
+    color: white;
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+/* ================= INFO TEXT ================= */
 
 .info-center {
     max-width: 800px;
     margin: 30px auto;
-    padding: 20px 30px;
+    padding: 25px 35px;
     background: var(--overlay-light);
     border-radius: var(--radius);
-    text-align: center;
-    font-size: 1.0rem;
     line-height: 1.6;
-    
 }
 
 /* ================= BOTTOM ================= */
 
 .bottom-section {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
+    margin: 60px auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-end;
+    gap: 60px;
+    flex-wrap: wrap;
 }
 
-/* FROG LEFT */
+/* FROG */
 
 .frog-container {
-    /* position: relative; */
-    align-items: left;
-    left: 20px;
-    position: left;
+    position: relative;
 }
 
 #frog {
-    width: 120px;
-    left: 20px;
-    position: left;
+    width: 140px;
 }
 
-/* LILYPADS RIGHT */
+/* Speech bubble ABOVE frog */
+
+.speech-container {
+    position: absolute;
+    bottom: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.speech-bubble {
+    background: white;
+    border: 3px solid #1c3d4a;
+    border-radius: 16px;
+    padding: 10px 14px;
+    max-width: 240px;
+    font-size: 13px;
+}
+
+/* LILYPADS */
 
 .lilypad-row {
     background: var(--overlay-light);
     border-radius: var(--radius);
-    padding: 18px;
+    padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
 }
 
 .rectangle {
-    width: 80px;
-    height: 80px;
-    right: 20px;
-    position: right;
+    width: 85px;
+    height: 85px;
     background: url('images/Text_box_2_red.png') center/contain no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
+    font-size: 13px;
     text-align: center;
     cursor: pointer;
     transition: 0.2s;
@@ -135,46 +126,12 @@ h1,h2,p { color: #1c3d4a; }
     transform: scale(1.08);
 }
 
-/* SPEECH */
-
-.speech-container {
-    position: absolute;
-    bottom: 150px;
-    left: 40px;
-    display: flex;
-    gap: 8px;
-}
-
-.speech-bubble {
-    background: white;
-    border: 3px solid #1c3d4a;
-    border-radius: 16px;
-    padding: 8px 12px;
-    max-width: 300px;
-    font-size: 13px;
-}
-
-/* INFO CARDS */
-
-.info-card {
-    display: none;
-    margin-top: 20px;
-    background: var(--overlay-light);
-    padding: 20px;
-    border-radius: var(--radius);
-    max-width: 350px;
-}
-
 /* MOBILE */
 
-@media (max-width: 900px){
+@media (max-width: 800px){
 
-    .top-section {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-shape {
-        height: 100px;
+    .hero-image {
+        height: 140px;
     }
 
     .bottom-section {
@@ -184,8 +141,7 @@ h1,h2,p { color: #1c3d4a; }
     }
 
     .speech-container {
-        left: 50%;
-        transform: translateX(-50%);
+        bottom: 120px;
     }
 }
 </style>
@@ -193,26 +149,27 @@ h1,h2,p { color: #1c3d4a; }
 
 <body>
 
-<!-- TOP -->
-<div class="top-section">
-    <img src="images/banner_2.png" class="banner">
+<!-- BANNER -->
+<img src="images/banner_2.png" class="banner">
 
-    <div class="hero-shape">
-        <h1>Welcome to the<br>Bassin de la Muette</h1>
-    </div>
+<!-- HERO IMAGE -->
+<div class="hero-image">
+    <h1>Welcome to the<br>Bassin de la Muette</h1>
 </div>
 
-<!-- CENTER TEXT -->
+<!-- INFO TEXT -->
 <div class="info-center">
-    <p>Since 20--, the Bassin de la Muette has been suffering from toxic algae proliferation. <br>
-    Aquatic life struggles due to oxygen depletion and reduced light penetration. <br>
-    Floom monitors the lake in real time to restore ecological balance. </p>
+    <p>
+    Since 20--, the Bassin de la Muette has been suffering from toxic algae proliferation.
+    Aquatic life struggles due to oxygen depletion and reduced light penetration.
+    Floom monitors the lake in real time to restore ecological balance.
+    </p>
 </div>
 
 <!-- BOTTOM -->
 <div class="bottom-section">
 
-    <!-- FROG LEFT -->
+    <!-- FROG -->
     <div class="frog-container">
         <img id="frog" src="images/sargouset_2/eo_mc.png">
         <div class="speech-container" id="speech-container">
@@ -225,7 +182,7 @@ h1,h2,p { color: #1c3d4a; }
         </div>
     </div>
 
-    <!-- LILYPADS RIGHT -->
+    <!-- LILYPADS -->
     <div class="lilypad-row">
         <div class="rectangle" data-type="temperature">Temperature</div>
         <div class="rectangle" data-type="ph">pH</div>
@@ -235,84 +192,103 @@ h1,h2,p { color: #1c3d4a; }
 
 </div>
 
-<!-- YOUR ENTIRE JAVASCRIPT REMAINS EXACTLY THE SAME --> 
-<script> 
-    document.addEventListener("DOMContentLoaded", function() { 
-        /* ================= FROG ANIMATION ================= */ 
-        const frog=document.getElementById("frog"); 
-        let currentEyes="eo", 
-            currentMouth="mc"; 
-        const basePath="images/sargouset_2/"; 
-        function updateFrame(){ 
-            frog.src=basePath+currentEyes+"_"+currentMouth+".png"; } 
-        function blink(){ 
-            const seq=["esc","ec","esc"]; 
-            let i=0; 
-            const interval=setInterval(()=>{ 
-                currentEyes=seq[i]; 
-                updateFrame(); 
-                i++; 
-                if(i>=seq.length){ 
-                    clearInterval(interval); 
-                    currentEyes="eo"; 
-                    updateFrame(); 
-                } 
-            },
-                                       100); } 
-        setInterval(()=>{ 
-            blink(); },
-                    4000+Math.random()*3000); 
-        let talkingInterval; 
-        function startTalking(){ 
-            const mouths=["mc","mso","mo","mso"]; 
-            let i=0, cycles=0; 
-            talkingInterval=setInterval(()=>{ 
-                currentMouth=mouths[i]; 
-                updateFrame(); 
-                i=(i+1)%mouths.length; 
-                if(i===0) cycles++; 
-                if(cycles>=10) stopTalking(); },120); 
-        } 
-        function stopTalking(){ 
-            clearInterval(talkingInterval); 
-            currentMouth="mc"; updateFrame(); 
-        } 
-        startTalking(); 
-        setInterval(()=>{ 
-            startTalking(); 
-        },7000); 
-        /* ================= LILYPAD CLICK ================= */ 
-        const rectangles=document.querySelectorAll(".rectangle"); 
-        const speechText=document.getElementById("speech-text"); 
-        const parameterInfo={ temperature:"The temperature shows how warm the lake is.", turbidity:"Turbidity shows water clarity.", ph:"pH defines acidity.", conductivity:"Conductivity measures minerals." 
-                            }; 
-        rectangles.forEach(rect=>{ 
-            rect.addEventListener("click",()=>{ 
-                const type=rect.dataset.type; 
-                document.querySelectorAll(".info-card") .forEach(card=>card.style.display="none"); 
-                const card=document.getElementById(type+"-card"); 
-                card.style.display="block"; 
-                card.scrollIntoView({behavior:"smooth", block:"center"}); 
-                speechText.textContent=parameterInfo[type]; 
-                document.getElementById("speech-container").style.display="flex"; 
-                startTalking(); 
-            }); 
-        }); 
-        /* ================= THINGSPEAK ================= */ 
-        const channelID="3267133"; 
-        const readAPIKey="51RMF6RF0SNM01AP"; 
-        async function fetchData(){ 
-            try{ 
-                const response=await fetch(`https://api.thingspeak.com/channels/${channelID}/feeds.json?api_key=${readAPIKey}&results=1`);
-                const last=data.feeds[0]; 
-                if(last){ document.getElementById("turbidity").textContent=last.field1; 
-                         document.getElementById("conductivity").textContent=last.field2; 
-                         document.getElementById("temperature").textContent=last.field3; 
-                        } }catch(err){ console.error(err); 
-                                     } 
-        } fetchData(); 
-        setInterval(fetchData,15000); 
-    }); 
-</script> 
-</body> 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+/* ================= FROG ANIMATION ================= */
+
+const frog = document.getElementById("frog");
+let currentEyes = "eo";
+let currentMouth = "mc";
+const basePath = "images/sargouset_2/";
+
+function updateFrame(){
+    frog.src = basePath + currentEyes + "_" + currentMouth + ".png";
+}
+
+function blink(){
+    const seq = ["esc","ec","esc"];
+    let i = 0;
+    const interval = setInterval(()=>{
+        currentEyes = seq[i];
+        updateFrame();
+        i++;
+        if(i >= seq.length){
+            clearInterval(interval);
+            currentEyes = "eo";
+            updateFrame();
+        }
+    },100);
+}
+
+setInterval(()=>{ blink(); }, 4000 + Math.random()*3000);
+
+let talkingInterval;
+
+function startTalking(){
+    const mouths = ["mc","mso","mo","mso"];
+    let i=0, cycles=0;
+    talkingInterval = setInterval(()=>{
+        currentMouth = mouths[i];
+        updateFrame();
+        i=(i+1)%mouths.length;
+        if(i===0) cycles++;
+        if(cycles>=10) stopTalking();
+    },120);
+}
+
+function stopTalking(){
+    clearInterval(talkingInterval);
+    currentMouth="mc";
+    updateFrame();
+}
+
+startTalking();
+setInterval(()=>{ startTalking(); },7000);
+
+/* ================= LILYPAD CLICK ================= */
+
+const rectangles = document.querySelectorAll(".rectangle");
+const speechText = document.getElementById("speech-text");
+
+const parameterInfo = {
+    temperature:"The temperature shows how warm the lake is.",
+    turbidity:"Turbidity shows water clarity.",
+    ph:"pH defines acidity.",
+    conductivity:"Conductivity measures minerals."
+};
+
+rectangles.forEach(rect=>{
+    rect.addEventListener("click",()=>{
+        const type = rect.dataset.type;
+        speechText.textContent = parameterInfo[type];
+        startTalking();
+    });
+});
+
+/* ================= THINGSPEAK (FIXED) ================= */
+
+const channelID="3267133";
+const readAPIKey="51RMF6RF0SNM01AP";
+
+async function fetchData(){
+    try{
+        const response = await fetch(
+            `https://api.thingspeak.com/channels/${channelID}/feeds.json?api_key=${readAPIKey}&results=1`
+        );
+        const data = await response.json();
+        const last = data.feeds[0];
+        console.log("Latest data:", last);
+    }catch(err){
+        console.error(err);
+    }
+}
+
+fetchData();
+setInterval(fetchData,15000);
+
+});
+</script>
+
+</body>
 </html>
