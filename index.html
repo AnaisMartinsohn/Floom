@@ -289,7 +289,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /* ================= FROG ANIMATION ================= */
 
-const frog = document.getElementById("frog");
+/* const frog = document.getElementById("frog");
 let currentEyes = "eo";
 let currentMouth = "mc";
 const basePath = "images/sargouset_2/";
@@ -336,7 +336,44 @@ function stopTalking(){
 }
 
 startTalking();
-setInterval(()=>{ startTalking(); },7000);
+setInterval(()=>{ startTalking(); },7000); */
+
+  // 🐸 Sargouset animation
+  const frog = document.getElementById("frog");
+  let currentEyes = "eo", currentMouth = "mc";
+  const basePath = "images/sargouset_2/";
+
+  function updateFrame(){ frog.src = basePath + currentEyes + "_" + currentMouth + ".png"; }
+
+  function blink(){
+      const sequence = ["esc","ec","esc"]; let i=0;
+      const blinkInterval = setInterval(()=>{ 
+          currentEyes = sequence[i]; 
+          updateFrame(); 
+          i++;
+          if(i>=sequence.length){ 
+              clearInterval(blinkInterval); 
+              currentEyes = "eo"; 
+              updateFrame(); 
+          }
+      }, 100);
+  }
+  setInterval(()=>{ blink(); }, 4000 + Math.random()*3000);
+
+  let talkingInterval, talkCycles=0;
+  function startTalking(){
+      const mouths=["mc","mso","mo","mso"]; let i=0; talkCycles=0;
+      talkingInterval = setInterval(()=>{
+          currentMouth = mouths[i]; 
+          updateFrame(); 
+          i=(i+1)%mouths.length;
+          if(i===0) talkCycles++;
+          if(talkCycles>=10) stopTalking();
+      }, 120);
+  }
+  function stopTalking(){ clearInterval(talkingInterval); currentMouth="mc"; updateFrame(); }
+  startTalking(); 
+  setInterval(()=>{ startTalking(); }, 7000);
 
 /* 🗨️ Speech logic */
     const messages=[
