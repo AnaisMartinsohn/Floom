@@ -22,6 +22,16 @@ h1,h2,p { color: #1c3d4a; }
 
 /* ================= TOP ================= */
 
+.corner {
+    position: fixed;
+    width: 50px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.top-right { top: 0; right: 0; }
+.bottom-left { bottom: 0; left: 0; }
+
 .banner {
     margin-top: 20px;
     width: 150px;
@@ -203,6 +213,10 @@ h1,h2,p { color: #1c3d4a; }
 </head>
 
 <body>
+
+<!-- Decorative Lily Pads -->
+<img src="nenuphar.png" class="corner top-right">
+<img src="nenuphar_4.png" class="corner bottom-left">
 
 <!-- BANNER -->
 <img src="images/banner2.png" class="banner">
