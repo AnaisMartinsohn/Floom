@@ -68,41 +68,57 @@ h1,h2,p { color: #1c3d4a; }
     flex-wrap: wrap;
 } */
 
-/* Speech bubble ABOVE frog */
+/* FROG */
 
+.frog-container {
+    position: fixed;
+    bottom: -30px;   /* padding from bottom */
+    left: 20px;     /* padding from left */
+    z-index: 100;
+
+#frog {
+            position: fixed;
+            bottom: -30px;
+            left: 20px;
+            width: 140px;
+            z-index: 101;
+            pointer-events: none;
+        }
+        
 .speech-container {
-    position: absolute;
-    bottom: -12px;              /* raise it higher */
-    left: 30%;
-    transform: translateX(-50%);
-    z-index: 101;
+    position: fixed;
+    bottom: -12px;
+    left: 20px;
+    z-index: 7;
     display: flex;
+    align-items: flex-end;
     gap: 8px;
 }
-
+        
 .speech-bubble {
-    width: 300px;
+    max-width: 300px;
     background: white;
     border: 3px solid #1c3d4a;
     border-radius: 18px;
     padding: 12px 14px;
-    font-size: 18px;
+    font-size: 20px;
     color: #1c3d4a;
     box-shadow: 2px 4px 8px rgba(0,0,0,0.15);
     position: relative;
 }
-
+        
 .speech-bubble::after {
     content: "";
     position: absolute;
     bottom: -12px;
-    left: 30%;
-    transform: translateX(-50%);
+    left: 30px;
+    width: 0;
+    height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-top: 12px solid white;
 }
-
+        
 .speech-next {
     background: #1c3d4a;
     color: white;
@@ -111,28 +127,13 @@ h1,h2,p { color: #1c3d4a; }
     width: 32px;
     height: 32px;
     cursor: pointer;
+    font-size: 16px;
 }
+        
+.speech-next:hover { background: #14505f; }
 
 
-/* FROG */
-
-.frog-container {
-    position: fixed;
-    bottom: -30px;   /* padding from bottom */
-    left: 20px;     /* padding from left */
-    z-index: 100;
-}
-
-#frog {
-    width: 140px;
-    /* position: fixed;
-    bottom: -10px;
-    left: 10px;
-    width: 140px;
-    z-index: 100;
-    pointer-events: none; */
-}
-
+    
 /* LILYPADS */
 
 .lilypad-row {
@@ -210,17 +211,15 @@ h1,h2,p { color: #1c3d4a; }
 <div class="bottom-section">
 
     <!-- FROG -->
-    <div class="frog-container">
-        <img id="frog" src="images/sargouset_2/eo_mc.png">
+        <img id="frog" src="images/sargouset_2/eo_mc.png" alt="Sargouset">
+        
+        <!-- SARGOUSET SPEECH -->
         <div class="speech-container" id="speech-container">
             <div class="speech-bubble">
-                <span id="speech-text">
-                Hi! I'm Sargouset, your guide around the lake's health.
-                </span>
+                <span id="speech-text">Hi! I'm Sargouset, your guide around the lake's health.</span>
             </div>
-            <button id="speech-next">▶</button>
+            <button class="speech-next" id="speech-next">▶</button>
         </div>
-    </div>
 
     <!-- LILYPADS -->
     <div class="lilypad-row">
