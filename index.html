@@ -289,6 +289,15 @@ h1,h2,p { color: #1c3d4a; }
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+    const frames = [
+  "ec_mc","ec_mo","ec_mso",
+  "eo_mc","eo_mo","eo_mso",
+  "esc_mc","esc_mo","esc_mso"
+    ];
+    frames.forEach(name => {
+        const img = new Image();
+        img.src = basePath + name + ".png";
+    });
 
 /* ================= FROG ANIMATION ================= */
 
@@ -340,18 +349,6 @@ function stopTalking(){
 
 startTalking();
 setInterval(()=>{ startTalking(); },7000); */
-
-
-const frames = [
-  "ec_mc","ec_mo","ec_mso",
-  "eo_mc","eo_mo","eo_mso",
-  "esc_mc","esc_mo","esc_mso"
-];
-
-frames.forEach(name => {
-    const img = new Image();
-    img.src = basePath + name + ".png";
-});
 
   // 🐸 Sargouset animation
   const frog = document.getElementById("frog");
