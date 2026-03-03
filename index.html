@@ -340,17 +340,6 @@ setInterval(()=>{ startTalking(); },7000);
         conductivity:"Conductivity measures dissolved minerals."
     };
 
-    rectangles.forEach(rect=>{
-        rect.addEventListener("click",()=>{
-            const type=rect.dataset.type;
-            document.querySelectorAll(".info-card")
-                .forEach(card=>card.style.display="none");
-            document.getElementById(type+"-card").style.display="block";
-            speechText.textContent=parameterInfo[type];
-            document.getElementById("speech-container").style.display="flex";
-        });
-
-    });
 
     rectangles.forEach(rect => {
         rect.addEventListener("click", () => {
