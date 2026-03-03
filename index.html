@@ -71,13 +71,12 @@ h1,h2,p { color: #1c3d4a; }
 /* Speech bubble ABOVE frog */
 
 .speech-container {
-    position: relative;
-    /* position: fixed; */
-    bottom: 100px;   /* controls height above frog */
-    left: 20px;
+    position: fixed;
+    bottom: 150px;      /* controls height above frog */
+    left: 20px;         /* aligns with frog padding */
     z-index: 101;
     display: flex;
-    /* align-items: flex-end; */
+    align-items: flex-end;
     gap: 8px;
 }
 
@@ -97,7 +96,7 @@ h1,h2,p { color: #1c3d4a; }
     content: "";
     position: absolute;
     bottom: -12px;
-    left: 30px;
+    left: 40px;   /* adjust until it visually points at frog */
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-top: 12px solid white;
@@ -118,10 +117,9 @@ h1,h2,p { color: #1c3d4a; }
 
 .frog-container {
     position: fixed;
-    bottom: -10px;
-    left: 10px;
+    bottom: 20px;   /* padding from bottom */
+    left: 20px;     /* padding from left */
     z-index: 100;
-    pointer-events: none;
 }
 
 #frog {
