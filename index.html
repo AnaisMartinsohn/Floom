@@ -99,7 +99,7 @@ h1,h2,p { color: #1c3d4a; }
     pointer-events: none;
 }
         
-.speech-container {
+/* .speech-container {
     position: fixed;
     bottom: 140px;
     left: 20px;
@@ -108,9 +108,9 @@ h1,h2,p { color: #1c3d4a; }
     /* align-items: center; /* flex-end */ */
     align-items: flex-end;
     gap: 8px;
-}
+} */
         
-.speech-bubble {
+/* .speech-bubble {
     max-width: 250px;
     max-height: 100px;
     bottom: 140px;
@@ -122,6 +122,21 @@ h1,h2,p { color: #1c3d4a; }
     color: #1c3d4a;
     box-shadow: 2px 4px 8px rgba(0,0,0,0.15);
     position: relative;
+} */
+
+.speech-bubble {
+    position: fixed;
+    bottom: 140px;
+    left: 20px;
+    max-width: 250px;
+
+    background: white;
+    border: 3px solid #1c3d4a;
+    border-radius: 18px;
+    padding: 12px 14px;
+    font-size: 15px;
+    color: #1c3d4a;
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.15);
 }
         
 .speech-bubble::after {
@@ -136,7 +151,7 @@ h1,h2,p { color: #1c3d4a; }
     border-top: 12px solid white;
 }
         
-.speech-next {
+/* .speech-next {
     background: #1c3d4a;
     color: white;
     border: none;
@@ -148,6 +163,21 @@ h1,h2,p { color: #1c3d4a; }
 
     position: relative;
     top: -12px;   /* move arrow upward */
+} */
+
+.speech-next {
+    position: fixed;
+    bottom: 170px;   /* adjust this */
+    left: 290px;     /* adjust this */
+
+    background: #1c3d4a;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    font-size: 16px;
 }
         
 .speech-next:hover { background: #14505f; }
@@ -245,13 +275,17 @@ h1,h2,p { color: #1c3d4a; }
     <!-- FROG -->
         <img id="frog" src="images/sargouset_2/eo_mc.PNG" alt="Sargouset">
         
-        <!-- SARGOUSET SPEECH -->
+        <!-- <!-- SARGOUSET SPEECH -->
         <div class="speech-container" id="speech-container">
             <div class="speech-bubble">
                 <span id="speech-text">Hi! I'm Sargouset, your guide around the lake's health.</span>
             </div>
             <button class="speech-next" id="speech-next">▶</button>
-        </div>
+        </div> -->
+    <div class="speech-bubble" id="speech-container">
+        <span id="speech-text">Hi! I'm Sargouset, your guide around the lake's health.</span>
+    </div>
+    <button class="speech-next" id="speech-next">▶</button>
 
     <!-- LILYPADS -->
     <div class="lilypad-row">
