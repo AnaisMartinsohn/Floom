@@ -99,74 +99,41 @@ h1,h2,p { color: #1c3d4a; }
     pointer-events: none;
 }
         
-/* .speech-container {
+.speech-container {
     position: fixed;
-    bottom: 140px;
-    left: 20px;
-    z-index: 102;
+    bottom: 190px;
+    right: 110px;
+    z-index: 7;
     display: flex;
-    /* align-items: center;
     align-items: flex-end;
-    gap: 8px; } */
-        
-/* .speech-bubble {
-    max-width: 250px;
-    max-height: 100px;
-    bottom: 140px;
-    background: white;
-    border: 3px solid #1c3d4a;
-    border-radius: 18px;
-    padding: 12px 14px;
-    font-size: 15px;
-    color: #1c3d4a;
-    box-shadow: 2px 4px 8px rgba(0,0,0,0.15);
-    position: relative;
-} */
+    gap: 8px;
+}
 
 .speech-bubble {
-    position: fixed;
-    bottom: 240px;
-    left: 20px;
-    max-width: 250px;
+    max-width: 260px;
     background: white;
     border: 3px solid #1c3d4a;
     border-radius: 18px;
     padding: 12px 14px;
-    font-size: 15px;
+    font-size: 14px;
     color: #1c3d4a;
     box-shadow: 2px 4px 8px rgba(0,0,0,0.15);
-    z-index: 102;
-}
-        
-.speech-bubble::after {
-    content: "";
-    position: absolute;
-    bottom: -12px;
-    left: 30px;
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 12px solid white;
-}
-        
-/* .speech-next {
-    background: #1c3d4a;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
-    font-size: 16px;
-
     position: relative;
-    top: -12px;  } /* move arrow upward */
+}
+
+.speech-bubble::after {
+   content: "";
+   position: absolute;
+   bottom: -12px;
+   right: 30px;
+   width: 0;
+   height: 0;
+   border-left: 10px solid transparent;
+   border-right: 10px solid transparent;
+   border-top: 12px solid white;
+}
 
 .speech-next {
-    position: fixed;
-    bottom: 240px;   /* adjust this */
-    left: 300px;     /* adjust this */
     background: #1c3d4a;
     color: white;
     border: none;
@@ -175,11 +142,8 @@ h1,h2,p { color: #1c3d4a; }
     height: 32px;
     cursor: pointer;
     font-size: 16px;
-    gap: 8px;
-    position: relative;
-    z-index: 103;
 }
-        
+
 .speech-next:hover { background: #14505f; }
 
 .info-card {
@@ -276,16 +240,24 @@ h1,h2,p { color: #1c3d4a; }
         <img id="frog" src="images/sargouset_2/eo_mc.PNG" alt="Sargouset">
         
         <!-- <!-- SARGOUSET SPEECH -->
-        <div class="speech-container" id="speech-container">
+        <!-- <div class="speech-container" id="speech-container">
             <div class="speech-bubble">
                 <span id="speech-text">Hi! I'm Sargouset, your guide around the lake's health.</span>
             </div>
             <button class="speech-next" id="speech-next">▶</button>
-        </div> -->
+        </div> 
     <div class="speech-bubble" id="speech-container">
         <span id="speech-text">Hi! I'm Sargouset, your guide around the lake's health.</span>
     </div>
+    <button class="speech-next" id="speech-next">▶</button> -->
+
+    <!-- 🗨️ SARGOUSET SPEECH -->
+<div class="speech-container" id="speech-container">
+    <div class="speech-bubble">
+        <span id="speech-text">Hi! I'm Sargouset, your guide around the lake's health.</span>
+    </div>
     <button class="speech-next" id="speech-next">▶</button>
+</div>
 
     <!-- LILYPADS -->
     <div class="lilypad-row">
@@ -414,7 +386,7 @@ setInterval(()=>{ startTalking(); },7000); */
   setInterval(()=>{ startTalking(); }, 7000);
 
 /* 🗨️ Speech logic */
-    const messages=[
+/*    const messages=[
         "Hi! I'm Sargouset, your guide around the lake's health.",
         "Click on a lilypad to see how the lake is doing!"
     ];
@@ -428,7 +400,24 @@ setInterval(()=>{ startTalking(); },7000); */
         } else {
             document.getElementById("speech-container").style.display="none";
         }
-    });
+    }); */
+
+    // 🗨️ Sargouset speech
+  const messages = [
+      "Hi! I'm Sargouset, your guide around the lake's health.",
+      "Click on a lilypad to see how the lake is doing!"
+  ];
+  let messageIndex = 0;
+  const speechText = document.getElementById("speech-text");
+  document.getElementById("speech-next").addEventListener("click",()=>{
+      messageIndex++;
+      if(messageIndex < messages.length){
+          speechText.textContent = messages[messageIndex];
+      } else {
+          document.getElementById("speech-container").style.display = "none";
+      }
+  });
+
 
     /* 🌿 Lilypad clicks */
     const rectangles=document.querySelectorAll(".rectangle");
