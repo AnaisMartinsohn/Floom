@@ -105,10 +105,9 @@ h1,h2,p { color: #1c3d4a; }
     left: 20px;
     z-index: 102;
     display: flex;
-    /* align-items: center; /* flex-end */ */
+    /* align-items: center;
     align-items: flex-end;
-    gap: 8px; */
-} */
+    gap: 8px; } */
         
 /* .speech-bubble {
     max-width: 250px;
@@ -162,8 +161,7 @@ h1,h2,p { color: #1c3d4a; }
     font-size: 16px;
 
     position: relative;
-    top: -12px;   /* move arrow upward */
-} */
+    top: -12px;  } /* move arrow upward */
 
 .speech-next {
     position: fixed;
@@ -376,7 +374,7 @@ function stopTalking(){
 startTalking();
 setInterval(()=>{ startTalking(); },7000); */
 
-  // 🐸 Sargouset animation
+  // Sargouset animation
   const frog = document.getElementById("frog");
   let currentEyes = "eo", currentMouth = "mc";
   const basePath = "images/sargouset_2/";
