@@ -125,7 +125,7 @@ h1,h2,p { color: #1c3d4a; }
 
 .speech-bubble {
     position: fixed;
-    bottom: 140px;
+    bottom: 240px;
     left: 20px;
     max-width: 250px;
 
@@ -136,6 +136,7 @@ h1,h2,p { color: #1c3d4a; }
     font-size: 15px;
     color: #1c3d4a;
     box-shadow: 2px 4px 8px rgba(0,0,0,0.15);
+    z-index: 102;
 }
         
 .speech-bubble::after {
@@ -165,7 +166,7 @@ h1,h2,p { color: #1c3d4a; }
 
 .speech-next {
     position: fixed;
-    bottom: 170px;   /* adjust this */
+    bottom: 240px;   /* adjust this */
     left: 290px;     /* adjust this */
 
     background: #1c3d4a;
@@ -176,6 +177,7 @@ h1,h2,p { color: #1c3d4a; }
     height: 32px;
     cursor: pointer;
     font-size: 16px;
+    gap: 8px;
 }
         
 .speech-next:hover { background: #14505f; }
