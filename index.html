@@ -263,7 +263,7 @@ h1,h2,p { color: #1c3d4a; }
     <!-- LILYPADS -->
     <div class="lilypad-row">
         <div class="rectangle" data-type="temperature">Temperature</div>
-        <div class="rectangle" data-type="ph">pH</div>
+        <div class="rectangle" data-type="pH">pH</div>
         <div class="rectangle" data-type="turbidity">Turbidity</div>
         <div class="rectangle" data-type="conductivity">Conductivity</div>
     </div>
@@ -497,6 +497,23 @@ setInterval(()=>{ startTalking(); },7000); */
 
   fetchTemperature();
   setInterval(fetchTemperature, 15000);
+
+ fetchTurbidity();
+  setInterval(fetchTurbidity, 15000);
+    
+  async function fetchpH(){
+      try {
+          const response = await fetch(`https://api.thingspeak.com/channels/${channelID}/feeds.json?api_key=${readAPIKey}&results=1`);
+          const data = await response.json();
+          const last = data.feeds[0];
+          if(last){
+              document.getElementById("pH").textContent = last.field4;
+          }
+      } catch(err){
+          console.error("Error fetching pH:", err);
+      }
+  }
+
 
 }); // end DOMContentLoaded
 </script>
