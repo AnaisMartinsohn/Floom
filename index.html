@@ -425,7 +425,7 @@ setInterval(()=>{ startTalking(); },7000); */
     const parameterInfo={
         temperature: "The temperature shows how warm the lake is. Too warm, fish struggle to breathe; too cold, plants grow slowly.",
         turbidity: "Turbidity shows how clear or cloudy the water is. Very cloudy water makes it harder for plants and animals to thrive.",
-        ph: "pH defines the lake's acidity. Life prefers water that is neither too acidic nor too basic.",
+        pH: "pH defines the lake's acidity. Life prefers water that is neither too acidic nor too basic.",
         conductivity: "Conductivity measures dissolved minerals. Sudden changes can indicate unusual substances in the water."
     };
 
@@ -498,8 +498,8 @@ setInterval(()=>{ startTalking(); },7000); */
   fetchTemperature();
   setInterval(fetchTemperature, 15000);
 
- fetchTurbidity();
-  setInterval(fetchTurbidity, 15000);
+ fetchpH();
+ setInterval(fetchpH, 15000);
     
   async function fetchpH(){
       try {
@@ -513,6 +513,8 @@ setInterval(()=>{ startTalking(); },7000); */
           console.error("Error fetching pH:", err);
       }
   }
+ fetchpH();
+ setInterval(fetchpH, 15000);
 
 
 }); // end DOMContentLoaded
