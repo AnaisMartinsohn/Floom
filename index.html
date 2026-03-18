@@ -263,7 +263,7 @@ h1,h2,p { color: #1c3d4a; }
     <!-- LILYPADS -->
     <div class="lilypad-row">
         <div class="rectangle" data-type="temperature">Temperature</div>
-        <div class="rectangle" data-type="pH">pH</div>
+        <div class="rectangle" data-type="ph">pH</div>
         <div class="rectangle" data-type="turbidity">Turbidity</div>
         <div class="rectangle" data-type="conductivity">Conductivity</div>
     </div>
@@ -272,25 +272,25 @@ h1,h2,p { color: #1c3d4a; }
     <div class="info-card" id="temperature-card">
         <h2>Lake Temperature</h2>
         <p>Current temperature: <strong id="temperature">--</strong></p>
-        <p class="evolution-placeholder">[Evolution over time will be added here]</p>
+        <iframe src="https://thingspeak.com/channels/3267133/charts/3?api_key=51RMF6RF0SNM01AP&results=20&dynamic=true"></iframe>
     </div>
 
     <div class="info-card" id="turbidity-card">
         <h2>Lake Turbidity</h2>
         <p>Current turbidity: <strong id="turbidity">--</strong></p>
-        <p class="evolution-placeholder">[Evolution over time will be added here]</p>
+        <iframe src="https://thingspeak.com/channels/3267133/charts/1?api_key=51RMF6RF0SNM01AP&results=20&dynamic=true"></iframe>
     </div>
 
     <div class="info-card" id="ph-card">
         <h2>Lake pH</h2>
         <p>Current pH: <strong id="pH">--</strong></p>
-        <p class="evolution-placeholder">[Evolution over time will be added here]</p>
+        <iframe src="https://thingspeak.com/channels/3267133/charts/4?api_key=51RMF6RF0SNM01AP&results=20&dynamic=true"></iframe>
     </div>
 
     <div class="info-card" id="conductivity-card">
         <h2>Lake Conductivity</h2>
         <p>Current conductivity: <strong id="conductivity">--</strong></p>
-        <p class="evolution-placeholder">[Evolution over time will be added here]</p>
+        <iframe src="https://thingspeak.com/channels/3267133/charts/2?api_key=51RMF6RF0SNM01AP&results=20&dynamic=true"></iframe>
     </div>
 
 </div>
