@@ -481,9 +481,14 @@ setInterval(()=>{ startTalking(); },7000); */
             card.style.display = "block";
             card.scrollIntoView({ behavior: "smooth", block: "start" });
             speechText.textContent = parameterInfo[type].info;
-            setTimeout(() => {
-                speechText.textContent = parameterInfo[type].status;
-            }, 3000);
+            document.getElementById("status").addEventListener("click",()=>{
+                messageIndex++;
+                if(messageIndex < messages.length){
+                    speechText.textContent = messages[messageIndex];
+                } else {
+                    document.getElementById("speech-container").style.display = "none";
+                }
+            });
             document.getElementById("speech-container").style.display = "flex";
         });
     });
