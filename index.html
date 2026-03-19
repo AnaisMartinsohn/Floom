@@ -480,7 +480,10 @@ setInterval(()=>{ startTalking(); },7000); */
             const card = document.getElementById(type + "-card");
             card.style.display = "block";
             card.scrollIntoView({ behavior: "smooth", block: "start" });
-            speechText.textContent = parameterInfo[type];
+            speechText.textContent = parameterInfo[type].info;
+            setTimeout(() => {
+                speechText.textContent = parameterInfo[type].status;
+            }, 3000);
             document.getElementById("speech-container").style.display = "flex";
         });
     });
