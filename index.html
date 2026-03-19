@@ -67,6 +67,29 @@ h1,h2,p { color: #1c3d4a; }
     line-height: 1.5;
 }
 
+.water-status {
+    margin: 20px auto;
+    padding: 10px 20px;
+    background: var(--overlay-light);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    max-width: 500px;
+}
+
+.flag {
+    width: 20px;
+    height: 40px;
+    border-radius: 3px;
+}
+
+/* Colors */
+.green { background-color: #4CAF50; }
+.orange { background-color: #FF9800; }
+.red { background-color: #F44336; }
+
 /* ================= BOTTOM ================= */
 
 /* .bottom-section {
@@ -232,6 +255,12 @@ h1,h2,p { color: #1c3d4a; }
     Aquatic life struggles due to oxygen depletion and reduced light penetration.<br>
     Floom monitors the lake in real time to restore ecological balance.
     </p>
+</div>
+
+<!-- 🌊 WATER QUALITY STATUS -->
+<div class="water-status">
+    <div class="flag green" id="water-flag"></div>
+    <p id="water-text">Today, the water quality is good.</p>
 </div>
 
 <!-- BOTTOM -->
@@ -422,12 +451,24 @@ setInterval(()=>{ startTalking(); },7000); */
 
     /* 🌿 Lilypad clicks */
     const rectangles=document.querySelectorAll(".rectangle");
-    const parameterInfo={
-        temperature: "The temperature shows how warm the lake is. Too warm, fish struggle to breathe; too cold, plants grow slowly.",
-        turbidity: "Turbidity shows how clear or cloudy the water is. Very cloudy water makes it harder for plants and animals to thrive.",
-        pH: "pH defines the lake's acidity. Life prefers water that is neither too acidic nor too basic.",
-        conductivity: "Conductivity measures dissolved minerals. Sudden changes can indicate unusual substances in the water."
-    };
+    const parameterInfo = {
+    temperature: {
+        info: "The temperature shows how warm the lake is. Too warm, fish struggle to breathe; too cold, plants grow slowly.",
+        status: "Good news! The water temperature is within a healthy range today."
+    },
+    turbidity: {
+        info: "Turbidity shows how clear or cloudy the water is. Very cloudy water makes it harder for plants and animals to thrive.",
+        status: "Great! The water is clear, which allows life to flourish."
+    },
+    pH: {
+        info: "pH defines the lake's acidity. Life prefers water that is neither too acidic nor too basic.",
+        status: "Perfect! The pH level is balanced and suitable for aquatic life."
+    },
+    conductivity: {
+        info: "Conductivity measures dissolved minerals. Sudden changes can indicate unusual substances in the water.",
+        status: "Everything looks stable! Conductivity levels are within a normal range."
+    }
+};
 
 
     rectangles.forEach(rect => {
